@@ -1,0 +1,14 @@
+{
+	"name": "Keyboard navigation",
+	"version": "0.0.3",
+	"manifest_version": 2,
+	"description": "Navigation using keyboard",
+	"run_at": "document_start",
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": ["lib/jquery.js", "src/page.js"],
+			"css": ["src/page.css"]
+		}
+	]
+}
