@@ -1,13 +1,16 @@
+Webstore url:
+https://chrome.google.com/webstore/detail/keyboard-navigation/hmgiolegdbdolpidhaplanaalileahkd
+
 Class diagram:
 https://www.lucidchart.com/documents/edit/1f403e7f-0dd7-46ef-b61b-6d3235a621f2
 
-Overvej arkitektur fra: https://github.com/philc/vimium
+Maybe reuse stuff from: https://github.com/philc/vimium
 
-Brug NodeIterator / NodeFilter i stedet for jQuery?
+Use NodeIterator / NodeFilter instead of jQuery?
 https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
 https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
 Global actions:
 	Google search on current site.
-	Open inputfield.
-	Blur with esc key.
+	Open inputfield with alt+Q.
+	Close inputfield with esc key.
