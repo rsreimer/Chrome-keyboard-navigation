@@ -3,7 +3,7 @@ function Clickable(element) {
 }
 
 // Inheritance
-Clickable.prototype = new Focusable();
+Clickable.prototype = new Interactable();
 Clickable.prototype.constructor = Clickable;
 
 Clickable.prototype.click = function () {

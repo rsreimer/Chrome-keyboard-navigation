@@ -43,9 +43,20 @@
         </audio>
     </div>
 
-    <script src="src/DOMParser.js"></script>
-    <script src="src/interactables/Focusable.js"></script>
+    <script src="src/DOMCrawler.js"></script>
+    <script src="src/interactables/Interactable.js"></script>
     <script src="src/interactables/Clickable.js"></script>
     <script src="src/interactables/Playable.js"></script>
+
+    <script>
+        var crawler = new DOMCrawler(document);
+
+        crawler.findInteractables();
+        var elements = crawler.search("home");
+
+        elements.forEach(function(element) {
+            console.log(element.relevance)
+        })
+    </script>
 </body>
 </html>

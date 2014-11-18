@@ -1,32 +1,5 @@
-function isElementInViewport (element) {
-    var rect = element.getBoundingClientRect();
-
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-function getElementDepth (element) {
-	var depth = 0;
-	
-	do {
-		element = element.parentNode;
-		depth++;
-	}
-	while(element.nodeName != "BODY")
-
-	return depth;
-}
-
 function ActionElement (element) {
 	this.rating = 0;
-
-	this.setCandidate = function () {
-		$(element).addClass('candidate');
-	}
 
 	this.removeCandidate = function () {
 		$(element).removeClass('candidate');
@@ -42,11 +15,6 @@ function ActionElement (element) {
 		$(element).removeClass('primary');
 	}
 
-	this.getIdentifier = function () {
-		if (element.tagName == "A")
-			return element.innerText;	
-	}
-
 	this.execute = function () {
 		if (element.tagName == "A")
 			window.location.href = element.href;
@@ -59,39 +27,8 @@ function ActionElement (element) {
 		$(window).scrollTop(top);
 	}
 
-	this.calcRating = function () {
-		this.rating = 0;
-
-		if (!this.isCandidate()) return;
-
-		// Rate elements in viewport higher
-		if (isElementInViewport(element)) this.rating += 1000;
-
-		// Rate elements after depth in DOM tree
-		this.rating += 100 - getElementDepth(element);
-
-		// TODO: Rate element for how good target fits
-	}
-
 	this.isCandidate = function () {
-		var hasClass = $(element).hasClass('candidate');
 		return $(element).hasClass('candidate');
-	}
-
-	this.isPrimary = function () {
-		return $(element).hasClass('primary');
-	}
-
-	this.handle = function (target) {
-		var isCandidate = this.getIdentifier().toLowerCase().indexOf(target.toLowerCase()) > -1;
-		
-		if (isCandidate) {
-			this.setCandidate();
-		} else {
-			this.removeCandidate();
-		}
-
-		this.calcRating();
 	}
 }
 
@@ -110,7 +47,7 @@ function navigationService(actionElements) {
 		});
 	}
 
-	this.execute = function(element) {
+	this.execute = function() {
 		this.candidates[primary].execute();
 	}
 

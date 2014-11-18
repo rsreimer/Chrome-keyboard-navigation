@@ -3,7 +3,7 @@ function Playable(element) {
 }
 
 // Inheritance
-Playable.prototype = new Focusable();
+Playable.prototype = new Interactable();
 Playable.prototype.constructor = Playable;
 
 Playable.prototype.play = function () {
