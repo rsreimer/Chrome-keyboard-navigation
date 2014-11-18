@@ -1,15 +1,17 @@
-function Playable(element) {
+if (!r) var r = {};
+
+r.Playable = function(element) {
     this.element = element;
-}
+};
 
 // Inheritance
-Playable.prototype = new Interactable();
-Playable.prototype.constructor = Playable;
+r.Playable.prototype = new r.Interactable();
+r.Playable.prototype.constructor = r.Playable;
 
-Playable.prototype.play = function () {
+r.Playable.prototype.play = function () {
     this.element.play();
 };
 
-Playable.prototype.pause = function () {
+r.Playable.prototype.pause = function () {
     this.element.pause();
 };

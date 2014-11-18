@@ -1,11 +1,13 @@
-function Clickable(element) {
+if (!r) var r = {};
+
+r.Clickable = function(element) {
     this.element = element;
-}
+};
 
 // Inheritance
-Clickable.prototype = new Interactable();
-Clickable.prototype.constructor = Clickable;
+r.Clickable.prototype = new r.Interactable();
+r.Clickable.prototype.constructor = r.Clickable;
 
-Clickable.prototype.click = function () {
+r.Clickable.prototype.click = function () {
     this.element.click();
 };

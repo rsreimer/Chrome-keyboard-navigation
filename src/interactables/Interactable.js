@@ -1,13 +1,15 @@
-function Interactable(element) {
+if (!r) var r = {};
+
+r.Interactable = function(element) {
     this.element = element;
     this.relevance = 0;
-}
+};
 
-Interactable.prototype.focus = function () {
+r.Interactable.prototype.focus = function () {
     this.element.focus();
 };
 
-Interactable.prototype.isInViewport = function() {
+r.Interactable.prototype.isInViewport = function() {
     var rect = this.element.getBoundingClientRect();
 
     return (
@@ -18,7 +20,7 @@ Interactable.prototype.isInViewport = function() {
     );
 };
 
-Interactable.prototype.getDepth = function() {
+r.Interactable.prototype.getDepth = function() {
     var depth = 0;
     var element = this.element;
 
@@ -31,17 +33,17 @@ Interactable.prototype.getDepth = function() {
     return depth;
 };
 
-Interactable.prototype.isVisible = function () {
+r.Interactable.prototype.isVisible = function () {
     return 1; // TODO Is the element visible? Look for css (display: none;)
 };
 
-Interactable.prototype.contextMatchesSearch = function (search) {
+r.Interactable.prototype.contextMatchesSearch = function (search) {
     // TODO Look for how parent elements match
     // TODO Any text that starts/ends with search should be rated higher
     return this.element.innerText.toLowerCase().indexOf(search.toLowerCase()) > -1;
 };
 
-Interactable.prototype.findRelevance = function (search) {
+r.Interactable.prototype.findRelevance = function (search) {
     this.relevance = 0;
 
     // TODO Use context value in relevance value.

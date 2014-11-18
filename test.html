@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <nav>
@@ -43,20 +44,69 @@
         </audio>
     </div>
 
+    <script src="src/SearchField.js"></script>
     <script src="src/DOMCrawler.js"></script>
+    <script src="src/SearchNavigator.js"></script>
     <script src="src/interactables/Interactable.js"></script>
     <script src="src/interactables/Clickable.js"></script>
     <script src="src/interactables/Playable.js"></script>
 
     <script>
-        var crawler = new DOMCrawler(document);
+        // Root DOM element
+        var rootElement = document.body;
 
-        crawler.cacheInteractables();
-        var elements = crawler.search("home");
+        // search element: <div id="r-search-field"><input><span></span></div>
+        var searchElement = document.createElement("div");
+        searchElement.id = "r-search-field";
+        searchElement.appendChild(document.createElement("input"));
+        searchElement.appendChild(document.createElement("span"));
+        rootElement.appendChild(searchElement);
 
-        elements.forEach(function(element) {
-            console.log(element.relevance)
-        })
+        var inputElement = rootElement.querySelector('#r-search-field input');
+        var resultCountElement = rootElement.querySelector('#r-search-field span');
+
+
+        // Application setup
+
+        var rDOMCrawler = new r.DOMCrawler(rootElement);
+        var rSearchField = new r.SearchField(inputElement, resultCountElement);
+        var rSearchNavigator = new r.SearchNavigator(rootElement, rSearchField, rDOMCrawler);
+
+        rDOMCrawler.cacheInteractables();
+
+        // Keybinding setup
+        document.addEventListener('keydown', function (event) {
+            // Alt+Q
+            if (event.keyCode == 81 && event.altKey) {
+                rSearchNavigator.open();
+            }
+            // Esc
+            else if (event.keyCode == 27) {
+                rSearchNavigator.close();
+            }
+        });
+
+        inputElement.addEventListener('keydown', function (event) {
+            // Arrow up
+            if (event.keyCode == 38) {
+                rSearchNavigator.moveTarget(-1);
+                event.preventDefault();
+            }
+            // Arrow down
+            else if (event.keyCode == 40) {
+                rSearchNavigator.moveTarget(1);
+                event.preventDefault();
+            }
+            // Enter
+            else if (event.keyCode == 13) {
+                rSearchNavigator.execute();
+                event.preventDefault();
+            }
+        });
+
+        inputElement.addEventListener('keydown', function () {
+            rSearchNavigator.search();
+        });
     </script>
 </body>
 </html>
