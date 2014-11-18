@@ -18,6 +18,7 @@
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     padding: .5em;
     font-size: 30px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #r-search-field input {
