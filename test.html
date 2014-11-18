@@ -5,10 +5,47 @@
     <title></title>
 </head>
 <body>
+    <nav>
+        <h1>Navigation</h1>
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+    </nav>
 
-<script src="src/DOMParser.js"></script>
-<script src="src/interactables/Focusable.js"></script>
-<script src="src/interactables/Clickable.js"></script>
-<script src="src/interactables/Playable.js"></script>
+    <form>
+        <h1>Contact</h1>
+        <div>
+            Name: <input class="input-name">
+        </div>
+        <div>
+            Gender:
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            Message:
+            <textarea></textarea>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+
+    <div>
+        <h1>Media</h1>
+        <video controls>
+            <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <audio controls>
+            <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+        </audio>
+    </div>
+
+    <script src="src/DOMParser.js"></script>
+    <script src="src/interactables/Focusable.js"></script>
+    <script src="src/interactables/Clickable.js"></script>
+    <script src="src/interactables/Playable.js"></script>
 </body>
 </html>
