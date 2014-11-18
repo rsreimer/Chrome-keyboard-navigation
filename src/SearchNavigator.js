@@ -24,6 +24,7 @@ r.SearchNavigator.prototype.execute = function() {
 r.SearchNavigator.prototype.search = function () {
     var search = this.searchField.getSearchString();
     this.interactables = this.crawler.search(search);
+    this.searchField.setResultCount(this.interactables.length);
 };
 
 r.SearchNavigator.prototype.open = function () {
