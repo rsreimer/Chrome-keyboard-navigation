@@ -12,7 +12,7 @@ var DOMCrawler = function (rootElement) {
 
 // Caches interactable elements.
 // Uses selector and constructor function pairs to select and map DOM elements into new objects.
-DOMCrawler.prototype.findInteractables = function () {
+DOMCrawler.prototype.cacheInteractables = function () {
     this.interactables = [];
 
     for (var i = 0; i < this.mappings.length; i++) {
