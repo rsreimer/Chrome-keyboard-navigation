@@ -7,8 +7,8 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],
-			"js": ["lib/jquery.js", "src/page.js"],
-			"css": ["src/page.css"]
+			"js": ["app.js"],
+			"css": ["app.css"]
 		}
 	]
 }
