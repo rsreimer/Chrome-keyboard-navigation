@@ -6,11 +6,5 @@ https://www.lucidchart.com/documents/edit/1f403e7f-0dd7-46ef-b61b-6d3235a621f2
 
 Maybe reuse stuff from: https://github.com/philc/vimium
 
-Use NodeIterator / NodeFilter instead of jQuery?
-https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-
 Global actions:
 	Google search on current site.
-	Open inputfield with alt+Q.
-	Close inputfield with esc key.
