@@ -8,6 +8,6 @@ gulp.task('default', function() {
         .pipe(concat('app.js'))
         .pipe(gulp.dest('dist'));
 
-    gulp.src(['src/style.css', 'src/demo.html'])
+    gulp.src(['src/style.css', 'manifest.json'])
         .pipe(gulp.dest('dist'));
 });
