@@ -55,7 +55,7 @@
     <script src="src/interactables/Playable.js"></script>
 
     <script>
-        // Search element: <div id="r-search-field"><input><span></span></div>
+        // Search element setup
         var inputElement = document.createElement("input");
         var resultCountElement = document.createElement("span");
 
@@ -67,6 +67,7 @@
         var rootElement = document.body;
         rootElement.appendChild(searchElement);
 
+
         // Application setup
 
         var rDOMCrawler = new r.DOMCrawler(rootElement);
@@ -74,6 +75,7 @@
         var rSearchNavigator = new r.SearchNavigator(rootElement, rSearchField, rDOMCrawler);
 
         rDOMCrawler.cacheInteractables();
+
 
         // Keybinding setup
         document.addEventListener('keydown', function (event) {
