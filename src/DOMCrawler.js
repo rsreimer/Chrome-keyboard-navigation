@@ -6,7 +6,7 @@ r.DOMCrawler = function (rootElement) {
     this.interactables = [];
 
     this.mappings = [
-        ['a, button, option', r.Clickable],
+        ['a, button', r.Clickable],
         ['audio, video', r.Playable],
         ['input, select, textarea', r.Focusable]
     ];
