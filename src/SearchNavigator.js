@@ -27,6 +27,7 @@ r.SearchNavigator.prototype.moveTarget = function (amount) {
 
 r.SearchNavigator.prototype.execute = function() {
     this.candidates[this.target].execute();
+    this.close();
 };
 
 r.SearchNavigator.prototype.setTarget = function (target) {
@@ -52,16 +53,17 @@ r.SearchNavigator.prototype.showCandidates = function () {
 r.SearchNavigator.prototype.hideCandidates = function () {
     this.candidates.forEach(function (candidate) {
         candidate.element.classList.remove('r-candidate');
+        candidate.element.classList.remove('r-target');
     });
 };
 
 r.SearchNavigator.prototype.search = function () {
     var search = this.searchField.getSearchString();
+    var candidates = this.crawler.search(search);
+    if (candidates.length == 0) return;
 
-    this.setCandidates(this.crawler.search(search));
+    this.setCandidates(candidates);
     this.searchField.setResultCount(this.candidates.length);
-
-    if (this.candidates.length == 0) return;
 
     var target = 0, highest = 0;
 
@@ -78,10 +80,13 @@ r.SearchNavigator.prototype.search = function () {
 };
 
 r.SearchNavigator.prototype.open = function () {
+    this.crawler.cacheInteractables();
     this.rootElement.classList.add('r-navigating');
-    this.searchField.focus();
+    this.searchField.open();
 };
 
 r.SearchNavigator.prototype.close = function () {
     this.rootElement.classList.remove('r-navigating');
+    this.hideCandidates();
+    this.searchField.close();
 };
