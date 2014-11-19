@@ -19,9 +19,8 @@
     font-size: 30px;
     font-family: Roboto, Arial, sans-serif;
 
-    -webkit-box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 2px 1px;
     -webkit-font-smoothing: antialiased;
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 2px 1px;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 2px 1px;
     box-sizing: border-box;
 
     transform: translate3d(0,110%,0);
@@ -51,10 +50,14 @@
 
 .r-navigating .r-candidate {
     background-color: rgb(252,248,227);
+    box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 2px 1px;
+    padding: 4px;
+    border-radius: 4px;
 }
 
 .r-navigating .r-candidate.r-target {
-    -webkit-animation: r-target-pulsing 1s infinite;
+    -webkit-animation: r-target-pulsing .8s infinite;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0 2px 4px 2px;
 }
 
 @-webkit-keyframes r-target-pulsing {
