@@ -69,13 +69,9 @@
 
 
         // Application setup
-
         var rDOMCrawler = new r.DOMCrawler(rootElement);
         var rSearchField = new r.SearchField(inputElement, resultCountElement);
         var rSearchNavigator = new r.SearchNavigator(rootElement, rSearchField, rDOMCrawler);
-
-        rDOMCrawler.cacheInteractables();
-
 
         // Keybinding setup
         document.addEventListener('keydown', function (event) {
