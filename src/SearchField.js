@@ -17,7 +17,10 @@ r.SearchField.prototype.open = function() {
     this.setResultCount(0);
     this.inputElement.value = "";
     this.inputElement.disabled = false;
+
+    var x = window.scrollX, y = window.scrollY;
     this.inputElement.focus();
+    window.scrollTo(x, y);
 };
 
 r.SearchField.prototype.close = function() {
