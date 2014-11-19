@@ -12,3 +12,7 @@ r.SearchField.prototype.getSearchString = function() {
 r.SearchField.prototype.setResultCount = function(resultCount) {
     this.resultCountElement.textContent = resultCount;
 };
+
+r.SearchField.prototype.focus = function() {
+    this.inputElement.focus();
+};

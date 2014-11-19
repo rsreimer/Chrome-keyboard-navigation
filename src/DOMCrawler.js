@@ -8,7 +8,7 @@ r.DOMCrawler = function (rootElement) {
     this.mappings = [
         ['a, button, option', r.Clickable],
         ['audio, video', r.Playable],
-        ['input, select, textarea', r.Interactable]
+        ['input, select, textarea', r.Focusable]
     ];
 };
 
@@ -33,6 +33,8 @@ r.DOMCrawler.prototype.cacheInteractables = function () {
 // Only elements with a relevance above 0 is returned.
 r.DOMCrawler.prototype.search = function (search) {
     var relevant = [];
+
+    if (!search) return relevant;
 
     for (var i = 0; i < this.interactables.length; i++) {
         this.interactables[i].findRelevance(search);

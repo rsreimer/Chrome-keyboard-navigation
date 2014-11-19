@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <h1>Navigation</h1>
     <nav>
-        <h1>Navigation</h1>
         <a href="#home">home</a>
         <a href="#about">about</a>
         <a href="#contact">contact</a>
     </nav>
 
+    <h1>Contact</h1>
     <form>
-        <h1>Contact</h1>
         <div>
             Name: <input class="input-name">
         </div>
@@ -34,11 +34,13 @@
         </div>
     </form>
 
+    <h1>Media</h1>
     <div>
-        <h1>Media</h1>
         <video controls>
             <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
         </video>
+    </div>
+    <div>
         <audio controls>
             <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">
         </audio>
@@ -48,6 +50,7 @@
     <script src="src/DOMCrawler.js"></script>
     <script src="src/SearchNavigator.js"></script>
     <script src="src/interactables/Interactable.js"></script>
+    <script src="src/interactables/Focusable.js"></script>
     <script src="src/interactables/Clickable.js"></script>
     <script src="src/interactables/Playable.js"></script>
 
@@ -104,7 +107,7 @@
             }
         });
 
-        inputElement.addEventListener('keydown', function () {
+        inputElement.addEventListener('keyup', function () {
             rSearchNavigator.search();
         });
     </script>

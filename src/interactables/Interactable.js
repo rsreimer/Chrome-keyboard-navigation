@@ -5,8 +5,11 @@ r.Interactable = function(element) {
     this.relevance = 0;
 };
 
-r.Interactable.prototype.focus = function () {
-    this.element.focus();
+r.Interactable.prototype.moveTo = function () {
+    /*var top =  $(element).offset().top - $( window ).height() / 2 - $(element).height() / 2;
+    if (top < 0) top = 0;
+
+    $(window).scrollTop(top);*/
 };
 
 r.Interactable.prototype.isInViewport = function() {
