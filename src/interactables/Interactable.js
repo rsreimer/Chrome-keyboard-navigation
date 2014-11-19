@@ -66,7 +66,6 @@ r.Interactable.prototype.findRelevance = function (search) {
     // Get context of element and elements parent
     var contextInfo = this.getContextInfo()+ ' ' + this.getContextInfo(1);
 
-    this.context = contextInfo;
     this.relevance = 0;
 
     // Relevance is zero if element is hidden
