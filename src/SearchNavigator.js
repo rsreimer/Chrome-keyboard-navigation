@@ -10,15 +10,31 @@ r.SearchNavigator = function(rootElement, searchField, crawler) {
 };
 
 r.SearchNavigator.prototype.next = function () {
-
+    this.moveTarget(1);
 };
 
 r.SearchNavigator.prototype.previous = function () {
+    this.moveTarget(-1);
+};
 
+r.SearchNavigator.prototype.moveTarget = function (amount) {
+    var newTarget = this.target + amount;
+    newTarget = newTarget % this.candidates.length;
+    if (newTarget < 0) newTarget += this.candidates.length;
+
+    this.setTarget(newTarget);
 };
 
 r.SearchNavigator.prototype.execute = function() {
     this.candidates[this.target].execute();
+};
+
+r.SearchNavigator.prototype.setTarget = function (target) {
+    if (this.target < this.candidates.length)
+        this.candidates[this.target].element.classList.remove('r-target');
+
+    this.target = target;
+    this.candidates[this.target].element.classList.add('r-target');
 };
 
 r.SearchNavigator.prototype.setCandidates = function (candidates) {
@@ -41,11 +57,24 @@ r.SearchNavigator.prototype.hideCandidates = function () {
 
 r.SearchNavigator.prototype.search = function () {
     var search = this.searchField.getSearchString();
+
     this.setCandidates(this.crawler.search(search));
+    this.searchField.setResultCount(this.candidates.length);
+
+    if (this.candidates.length == 0) return;
+
+    var target = 0, highest = 0;
+
+    this.candidates.forEach(function(candidate, i) {
+        if (candidate.relevance <= highest) return;
+
+        highest = candidate.relevance;
+        target = i;
+    });
+
+    this.setTarget(target);
 
     if (this.candidates.length == 1) this.execute();
-
-    this.searchField.setResultCount(this.candidates.length);
 };
 
 r.SearchNavigator.prototype.open = function () {
