@@ -49,19 +49,18 @@
 /* Candidates and target */
 
 .r-navigating .r-candidate {
-    background-color: rgb(252,248,227);
+    background-color: #FFECB3;
     box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 2px 1px;
     padding: 4px;
-    border-radius: 4px;
 }
 
 .r-navigating .r-candidate.r-target {
-    -webkit-animation: r-target-pulsing .8s infinite;
+    -webkit-animation: r-target-pulsing 1s infinite;
     box-shadow: rgba(0, 0, 0, 0.117647) 0 2px 4px 2px;
 }
 
 @-webkit-keyframes r-target-pulsing {
-    0%   {background-color: rgba(255,206,109,.5);}
-    50%  {background-color: rgba(255,206,109,1);}
-    100% {background-color: rgba(255,206,109,.5);}
+    0%   {background-color: rgba(255,179,0,.5);}
+    50%  {background-color: rgba(255,179,0,1);}
+    100% {background-color: rgba(255,179,0,.5);}
 }
