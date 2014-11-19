@@ -36,24 +36,51 @@ r.Interactable.prototype.getDepth = function() {
     return depth;
 };
 
-r.Interactable.prototype.isVisible = function () {
-    return 1; // TODO Is the element visible? Look for css (display: none;)
+r.Interactable.prototype.isHidden = function () {
+    return window.getComputedStyle(this.element).display === 'none';
 };
 
-r.Interactable.prototype.contextMatchesSearch = function (search) {
-    // TODO Look for how parent elements match
-    // TODO Any text that starts/ends with search should be rated higher
-    return this.element.innerText.toLowerCase().indexOf(search.toLowerCase()) > -1;
+r.Interactable.prototype.getContextInfo = function (level) {
+    level = level || 0;
+
+    var element = this.element;
+
+    for (var i = 0; i < level; i++) {
+        element = element.parentNode;
+    }
+
+    var properties = ["innerText", "id", "className", "title", "name", "tagName"];
+    var context = [];
+
+    for(var i = 0; i < properties.length; i++) {
+        var value = element[properties[i]];
+
+        if (value) context.push(value);
+    }
+
+    return context.join(" ").toLowerCase();
 };
 
 r.Interactable.prototype.findRelevance = function (search) {
+    // Get context of element and elements parent
+    var contextInfo = this.getContextInfo()+ ' ' + this.getContextInfo(1);
+
+    this.context = contextInfo;
     this.relevance = 0;
 
-    // TODO Use context value in relevance value.
-    if (!this.contextMatchesSearch(search)) return;
+    // Relevance is zero if element is hidden
+    if (this.isHidden()) return;
+
+    // Relevance is zero if search string is not in context
+    var searchOffset = contextInfo.indexOf(search.toLowerCase());
+    if (searchOffset == -1) return;
+
 
     // Rate elements in viewport higher
-    if (this.isInViewport()) this.relevance += 100;
+    if (this.isInViewport()) this.relevance += 10000;
+
+    // Look for how good search fits contextinfo.
+    this.relevance += 1000 - searchOffset;
 
     // Rate elements after depth in DOM tree
     this.relevance += 10 - this.getDepth();
