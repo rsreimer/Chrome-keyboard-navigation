@@ -6,6 +6,7 @@ r.Interactable = function(element) {
 };
 
 r.Interactable.prototype.moveTo = function () {
+    // TODO Implement and use this. Move viewport to target interactable
     /*var top =  $(element).offset().top - $( window ).height() / 2 - $(element).height() / 2;
     if (top < 0) top = 0;
 
