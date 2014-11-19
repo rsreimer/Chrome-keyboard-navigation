@@ -9,5 +9,5 @@ r.Focusable.prototype = new r.Interactable();
 r.Focusable.prototype.constructor = r.Focusable;
 
 r.Focusable.prototype.execute = function () {
-    this.element.click();
+    this.element.focus();
 };
