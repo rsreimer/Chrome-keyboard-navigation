@@ -6,5 +6,4 @@ https://www.lucidchart.com/documents/edit/1f403e7f-0dd7-46ef-b61b-6d3235a621f2
 
 Maybe reuse stuff from: https://github.com/philc/vimium
 
-Global actions:
-	Google search on current site.
+TODO Google search on current site.
