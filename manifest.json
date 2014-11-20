@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"manifest_version": 2,
 	"description": "Navigation using keyboard",
-	"run_at": "document_start",
+	"run_at": "document_end",
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],

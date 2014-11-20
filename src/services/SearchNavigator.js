@@ -36,6 +36,7 @@ r.SearchNavigator.prototype.setTarget = function (target) {
 
     this.target = target;
     this.candidates[this.target].element.classList.add('r-target');
+    this.candidates[this.target].moveTo();
 };
 
 r.SearchNavigator.prototype.setCandidates = function (candidates) {

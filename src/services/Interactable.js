@@ -6,11 +6,14 @@ r.Interactable = function(element) {
 };
 
 r.Interactable.prototype.moveTo = function () {
-    // TODO Implement and use this. Move viewport to target interactable
-    /*var top =  $(element).offset().top - $( window ).height() / 2 - $(element).height() / 2;
+    var elementTop = this.element.getBoundingClientRect().top + window.pageYOffset - document.documentElement.clientTop;
+    var clientHeight = window.innerHeight;
+    var elementHeight = this.element.offsetHeight;
+
+    var top = elementTop - clientHeight/2 + elementHeight/2;
     if (top < 0) top = 0;
 
-    $(window).scrollTop(top);*/
+    window.scrollTo(0, top);
 };
 
 r.Interactable.prototype.isInViewport = function() {
