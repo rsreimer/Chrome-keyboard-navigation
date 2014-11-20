@@ -41,7 +41,7 @@ r.Interactable.prototype.getDepth = function() {
 };
 
 r.Interactable.prototype.isHidden = function () {
-    return window.getComputedStyle(this.element).display === 'none';
+    return window.getComputedStyle(this.element).display === 'none' || this.element.disabled;
 };
 
 r.Interactable.prototype.getContextInfo = function (level) {
