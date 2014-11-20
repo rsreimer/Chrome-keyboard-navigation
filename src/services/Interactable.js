@@ -53,7 +53,7 @@ r.Interactable.prototype.getContextInfo = function (level) {
         element = element.parentNode;
     }
 
-    var properties = ["innerText", "id", "className", "title", "name", "tagName"];
+    var properties = ["innerText", "placeholder", "id", "className", "title", "name", "tagName"];
     var context = [];
 
     for(var i = 0; i < properties.length; i++) {
