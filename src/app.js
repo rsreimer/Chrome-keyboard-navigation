@@ -3,12 +3,15 @@ var inputElement = document.createElement("input");
 var resultCountElement = document.createElement("span");
 
 var searchElement = document.createElement("div");
-searchElement.id = "r-search-field";
 searchElement.appendChild(inputElement);
 searchElement.appendChild(resultCountElement);
 
+var containerElement = document.createElement("div");
+containerElement.id = "r-search-field";
+containerElement.appendChild(searchElement);
+
 var rootElement = document.body;
-rootElement.appendChild(searchElement);
+rootElement.appendChild(containerElement);
 
 // Application setup
 var rDOMCrawler = new r.DOMCrawler(rootElement);
