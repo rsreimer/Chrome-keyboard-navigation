@@ -35,6 +35,7 @@ r.SearchNavigator.prototype.setTarget = function (target) {
         this.candidates[this.target].element.classList.remove('r-target');
 
     this.target = target;
+    this.searchField.setTarget(target);
     this.candidates[this.target].element.classList.add('r-target');
     this.candidates[this.target].moveTo();
 };
