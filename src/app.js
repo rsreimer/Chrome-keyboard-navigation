@@ -1,5 +1,6 @@
 // Search element setup
 var inputElement = document.createElement("input");
+inputElement.id = "r-search-input";
 var resultCountElement = document.createElement("span");
 
 var searchElement = document.createElement("div");

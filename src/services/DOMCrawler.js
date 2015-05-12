@@ -24,7 +24,7 @@ r.DOMCrawler.prototype.cacheInteractables = function () {
         var nodeList = this.rootElement.querySelectorAll(selector);
 
         for (var j = 0; j < nodeList.length; j++) {
-            if (nodeList[j].parentNode.id == "r-search-field") continue;
+            if (nodeList[j].id === "r-search-input") continue;
 
             this.interactables.push(new constructor(nodeList[j]));
         }
